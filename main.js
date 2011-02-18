@@ -1,10 +1,17 @@
+var id = 0;
 var itemViewModel = function(options) {
+	options = options || {};
     this.item = ko.observable(options.item || '');
+	this.id = ko.observable(id++);
     this.hours = ko.observable(options.hours || '');
+    this.enteredTime = ko.observable(options.enteredTime || 0);
     this.isDone = function() { 
-      //check if item is done  
+      
       return false
     };
+    this.timeRemaining = ko.dependentObservable(function() {
+		return this.hours() - this.enteredTime();
+	}, this);
 }
 itemViewModel.prototype = {
     setActive: function() {
@@ -15,15 +22,58 @@ itemViewModel.prototype = {
     }
 }
 
-var viewModel = {};
-viewModel.items = ko.observableArray([]);
-viewModel.addItem = function () {
-   // add item code
-   viewModel.items.push(new itemViewModel({item: $("#new-todo").val(), hours: $("#new-todo-hours").val()}))
+var taskList = function() {
+	this.tasks = ko.observableArray([]);
+	this.first = ko.dependentObservable(function() {
+		return this.tasks()[0] || new itemViewModel();
+	}, this);
+	this.time_remaining = ko.dependentObservable(function() {
+		var total = 0;
+		for(var i in this.tasks()) {
+			total += this.tasks()[i].timeRemaining();
+		}
+		return total;
+	}, this);
+	
+	this.tasks.subscribe(function() {
+		window.setTimeout(function() {
+			$('#todo-list').sortable();
+		}, 100);
+	});
+	
+	this.itemToAdd = ko.observable("");
+	this.addTime = ko.observable("");
+};
+
+taskList.prototype = {
+	onSort: function(ui, e) {
+		var order = [];
+		$('li', ui).each(function() {
+			if($(this).attr('id')) order.push(parseInt($(this).attr('id')));
+		});
+		var items = this.tasks();
+		this.tasks( [] );
+		for(var i in order) 
+			for(var j in items)
+				if(items[j].id() == order[i])
+					this.tasks.push(items[j]);
+		return true;
+	},
+	
+	addItem: function() {
+		this.tasks.push(new task({
+			name: this.itemToAdd(),
+			totalTime: parseInt(this.addTime())
+		}));
+		this.itemToAdd("");
+		this.addTime("");
+	}
 }
 
-viewModel.items.push(new itemViewModel({item: "Do this", hours: 3}))
-viewModel.items.push(new itemViewModel({item: "Do that", hours: 4}))
+viewModel = new taskList();
+
+viewModel.tasks.push(new itemViewModel({item: "Do this", hours: 3}))
+viewModel.tasks.push(new itemViewModel({item: "Do that", hours: 4}))
 
 ko.applyBindings(viewModel);
 

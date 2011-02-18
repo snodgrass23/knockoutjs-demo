@@ -340,3 +340,28 @@ html {
   -khtml-transform:rotate(180deg);
   -webkit-transform:rotate(180deg);
 }
+
+
+ul li{
+	cursor: move;
+	background: #fff;
+}
+
+#title{
+	padding: 10px 20px;
+	background: #fff;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+}
+
+#title h2{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#title h2 span{
+	font-weight: normal;
+	padding-right: 20px;
+}
