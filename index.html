@@ -54,12 +54,6 @@
       <li>Do cool shit...</li> 
     </ul> 
  
-    <div id="credits"> 
-      Created by
-      <br /> 
-      Skookum
-    </div> 
- 
  
     <!-- Templates --> 
     <script type="text/html" id="itemTemplate"> 
@@ -72,9 +66,8 @@
                     <input data-bind="value: item, valueUpdate: 'afterkeydown'" class="enteredItem"  />
               </div>
               <div class="todo-hours">              	
-								<input data-bind="value: enteredTime, valueUpdate: 'afterkeydown', disable: isDone" class="enteredTime"  /> / 
-								<input data-bind="value: hours, valueUpdate: 'afterkeydown', disable: isDone" class="totalTime"  />
-
+					<input data-bind="value: enteredTime, valueUpdate: 'afterkeydown', disable: isDone" class="enteredTime"  /> / 
+					<input data-bind="value: hours, valueUpdate: 'afterkeydown', disable: isDone" class="totalTime"  />
               </div>
               <span class="todo-destroy" data-bind="click: remove"></span>
             </div>
