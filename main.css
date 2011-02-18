@@ -134,20 +134,15 @@ html {
     #todo-list .editing .edit {
       display: block;
     }
-    #todo-list .editing input {
-      width: 444px;
+    input.enteredItem {
       font-size: 24px;
       font-family: inherit;
       margin: 0;
       line-height: 1.6em;
       border: 0;
       outline: none;
-      padding: 10px 7px 0px 27px;
-      border: 1px solid #999999;
-      -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-      -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-      -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-      box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+      padding: 0px 0px 0px 10px;
+      border: 1px solid transparent;
     }
   #todo-list .check {
     position: relative;
@@ -372,13 +367,14 @@ ul li{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
-
 #summary {
 	position: absolute;
 	right: 0;
 	top: 48px;
 }
-
+#summary input.enteredItem {
+  font-size:70%;
+}
 #summary li .check, #summary li .todo-hours, #summary li .todo-destroy, #summary li .todo-input{
 	display: none;
 }
