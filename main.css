@@ -337,7 +337,7 @@ html {
 }
 
 
-ul li{
+#todo-list li{
 	cursor: move;
 	background: #fff;
 }
@@ -385,10 +385,41 @@ ul li.danger, ul li.danger input{
 	position: absolute;
 	right: 0;
 	top: 48px;
+	padding: 10px;
+	background: #fff;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  width: 160px;
+}
+
+#summary h3{
+	font-weight: bold;
+	margin-bottom: 8px;
 }
 #summary input.enteredItem {
   font-size:70%;
 }
 #summary li .check, #summary li .todo-hours, #summary li .todo-destroy, #summary li .todo-input{
 	display: none;
+}
+
+#summary li{
+	list-style-type: decimal;
+	margin-left: 20px;
+}
+
+#summary li .display{
+	padding: 0;
+	margin: 0;
+	display: inline;
+}
+
+#summary li .enteredItem{
+	font-size: 14px;
+	width: 125px;
+	margin: -6px 0 0;
+	padding: 0;
+	vertical-align: middle;
 }
