@@ -348,7 +348,7 @@ ul li{
 }
 
 #title{
-	padding: 10px 20px;
+	padding: 15px 20px;
 	background: #fff;
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
@@ -364,4 +364,21 @@ ul li{
 #title h2 span{
 	font-weight: normal;
 	padding-right: 20px;
+}
+
+.todo-hours input{
+	width: 20px;
+	border: 1px solid transparent;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+#summary {
+	position: absolute;
+	right: 0;
+	top: 48px;
+}
+
+#summary li .check, #summary li .todo-hours, #summary li .todo-destroy, #summary li .todo-input{
+	display: none;
 }
