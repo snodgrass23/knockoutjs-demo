@@ -19,7 +19,7 @@
     <!-- Todo App Interface --> 
  
 		<div id="title">
-			<h2 id="current_task">Current Task: <span data-bind="text: first().item"></span> Time Remaining: <span data-bind="text: time_remaining"></span></h2>
+			<h2 id="current_task"><strong data-bind="visible: first().item() != ''"> Current Task: <span data-bind="text: first().item"></span></strong> Time Remaining: <span data-bind="text: time_remaining"></span></h2>
 		</div> 
 	
 		<div id="summary">
