@@ -56,8 +56,8 @@ taskList.prototype = {
 	
 	addItem: function() {
 		this.tasks.push(new itemViewModel({
-			name: this.itemToAdd(),
-			totalTime: parseInt(this.addTime())
+			item: this.itemToAdd(),
+			hours: parseInt(this.addTime())
 		}));
 		this.itemToAdd("");
 		this.addTime("");
