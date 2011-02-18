@@ -135,6 +135,17 @@ html {
     margin: 0 10px 0 7px;
     float: left;
   }
+  #todo-list .todo-hours:after {
+   content:" Hours";
+  }
+  #todo-list .todo-hours {
+    position: absolute;
+    right: 45px;
+    top: 11px;
+    font-size:75%;
+    font-style:italic;
+    text-align: right;
+  }
   #todo-list .done .todo-content {
     text-decoration: line-through;
     color: #777777;
