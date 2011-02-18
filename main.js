@@ -5,12 +5,11 @@ var itemViewModel = function(options) {
 	this.id = ko.observable(id++);
     this.hours = ko.observable(options.hours || '');
     this.enteredTime = ko.observable(options.enteredTime || 0);
-    this.isDone = function() { 
-      
-      return false
-    };
+    this.isDone = ko.observable(options.done || false);
+    
     this.timeRemaining = ko.dependentObservable(function() {
-		return this.hours() - this.enteredTime();
+    	var hours = this.hours() - this.enteredTime();
+		return (hours < 0) ? 0 : hours;
 	}, this);
 }
 itemViewModel.prototype = {

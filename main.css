@@ -347,6 +347,10 @@ ul li{
 	background: #fff;
 }
 
+ul li.danger, ul li.danger input{
+	color: red;
+}
+
 #title{
 	padding: 15px 20px;
 	background: #fff;
@@ -370,7 +374,17 @@ ul li{
 	width: 20px;
 	border: 1px solid transparent;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    font-style: italic;
+    vertical-align: top;
+}
+
+.enteredTime{
+	text-align: right;
+}
+
+.done .todo-hours, .done .todo-hours input{
+	color: #ccc;
 }
 
 #summary {
