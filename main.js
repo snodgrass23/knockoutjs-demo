@@ -31,7 +31,7 @@ var taskList = function() {
 	
 	this.tasks.subscribe(function() {
 		window.setTimeout(function() {
-			$('#todo-list').sortable();
+			$('#todo-list').sortable({handle: '.handle'});
 		}, 100);
 	});
 	
