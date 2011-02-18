@@ -422,6 +422,7 @@ ul li.danger, ul li.danger input{
 
 .done .todo-hours, .done .todo-hours input{
 	color: #ccc;
+	background:#FFF;
 }
 .done input.enteredItem{
 	text-decoration: line-through;

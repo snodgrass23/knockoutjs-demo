@@ -23,8 +23,9 @@ var taskList = function() {
 	}, this);
 	this.time_remaining = ko.dependentObservable(function() {
 		var total = 0;
-		for(var i in this.tasks()) {
-			total += this.tasks()[i].timeRemaining();
+		for(var i in this.tasks()) { 
+			if (!this.tasks()[i].isDone())
+			  total += this.tasks()[i].timeRemaining();
 		}
 		return total;
 	}, this);
@@ -56,8 +57,8 @@ taskList.prototype = {
 	
 	addItem: function() {
 		this.tasks.push(new itemViewModel({
-			name: this.itemToAdd(),
-			totalTime: parseInt(this.addTime())
+			item: this.itemToAdd(),
+			hours: parseInt(this.addTime()) || 1
 		}));
 		this.itemToAdd("");
 		this.addTime("");

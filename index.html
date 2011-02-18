@@ -32,8 +32,8 @@
       <div class="content"> 
  
         <div id="create-todo"> 
-          <input id="new-todo" placeholder="What needs to be done?" type="text" />
-          <input id="new-todo-hours" placeholder="hours?" type="text" />
+          <input id="new-todo" placeholder="What needs to be done?" type="text" data-bind='value:itemToAdd, valueUpdate: "afterkeydown"' />
+          <input id="new-todo-hours" placeholder="hours?" type="text" data-bind='value:addTime, valueUpdate: "afterkeydown"' />
           <button type="submit" data-bind="click: addItem" id="addItemButton">Add</button>
           <span class="ui-tooltip-top" style="display:none;">Press Enter to save this task</span> 
         </div> 
@@ -50,14 +50,9 @@
     </div> 
  
     <ul id="instructions"> 
-      <li>Double-click to edit a todo.</li> 
+      <li>Add item with hours expected to take.</li>
+      <li>Do cool shit...</li> 
     </ul> 
- 
-    <div id="credits"> 
-      Created by
-      <br /> 
-      Skookum
-    </div> 
  
  
     <!-- Templates --> 
@@ -71,9 +66,8 @@
                     <input data-bind="value: item, valueUpdate: 'afterkeydown'" class="enteredItem"  />
               </div>
               <div class="todo-hours">              	
-								<input data-bind="value: enteredTime, valueUpdate: 'afterkeydown', disable: isDone" class="enteredTime"  /> / 
-								<input data-bind="value: hours, valueUpdate: 'afterkeydown', disable: isDone" class="totalTime"  />
-
+					<input data-bind="value: enteredTime, valueUpdate: 'afterkeydown', disable: isDone" class="enteredTime"  /> / 
+					<input data-bind="value: hours, valueUpdate: 'afterkeydown', disable: isDone" class="totalTime"  />
               </div>
               <span class="todo-destroy" data-bind="click: remove"></span>
             </div>
