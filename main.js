@@ -67,9 +67,6 @@ taskList.prototype = {
 
 viewModel = new taskList();
 
-viewModel.tasks.push(new itemViewModel({item: "Do this", hours: 3}))
-viewModel.tasks.push(new itemViewModel({item: "Do that", hours: 4}))
-
 ko.applyBindings(viewModel);
 
 
