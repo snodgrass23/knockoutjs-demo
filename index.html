@@ -71,7 +71,7 @@
 								<input data-bind="value: enteredTime, valueUpdate: 'afterkeydown'" class="enteredTime"  /> / 
 								<input data-bind="value: hours, valueUpdate: 'afterkeydown'" class="totalTime"  />
               </div>
-              <span class="todo-destroy"></span>
+              <span class="todo-destroy" data-bind="click: remove"></span>
             </div>
             <div class="edit">
               <input class="todo-input" type="text" value="" />
