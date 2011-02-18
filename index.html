@@ -64,13 +64,15 @@
         <li data-bind="attr: {id: id}, css: {done: isDone, danger: enteredTime() > hours()}">  
           <div class="todo_done">
             <div class="display">
+
               <input class="check" type="checkbox" data-bind="checked: isDone" />
-              <div class="todo-content" data-bind="text: item">
+              <div class="todo-content">
                     <input data-bind="value: item, valueUpdate: 'afterkeydown'" class="enteredItem"  />
               </div>
               <div class="todo-hours">              	
 								<input data-bind="value: enteredTime, valueUpdate: 'afterkeydown', disable: isDone" class="enteredTime"  /> / 
 								<input data-bind="value: hours, valueUpdate: 'afterkeydown', disable: isDone" class="totalTime"  />
+
               </div>
               <span class="todo-destroy" data-bind="click: remove"></span>
             </div>
