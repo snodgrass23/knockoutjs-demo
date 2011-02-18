@@ -2,23 +2,18 @@ var id = 0;
 var itemViewModel = function(options) {
 	options = options || {};
     this.item = ko.observable(options.item || '');
-	this.id = ko.observable(id++);
+	  this.id = ko.observable(id++);
     this.hours = ko.observable(options.hours || '');
     this.enteredTime = ko.observable(options.enteredTime || 0);
     this.isDone = ko.observable(options.done || false);
     
+    this.remove = function() {
+  	  viewModel.tasks.remove(this)
+  	};
     this.timeRemaining = ko.dependentObservable(function() {
     	var hours = this.hours() - this.enteredTime();
 		return (hours < 0) ? 0 : hours;
 	}, this);
-}
-itemViewModel.prototype = {
-    setActive: function() {
-      this.container.activePage(this);
-    },
-    setHome: function() {
-      this.container.homePage(this);
-    }
 }
 
 var taskList = function() {
